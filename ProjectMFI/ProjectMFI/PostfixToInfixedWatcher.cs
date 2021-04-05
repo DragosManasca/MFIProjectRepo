@@ -16,23 +16,28 @@ namespace ProjectMFI
         private int yRezGrupBoxCoordonate = 380;
         private int yTempGrupBoxCoordonate = 380;
         private int yModifyingUnits = 30;
+        private string progressInput;
         private Stack<TextBox> resultTextBoxes;
         private Stack<TextBox> tempTextBoxes;
 
-        public GroupBox ResultStackGB;
-        public GroupBox TempStackGB;
+        public GroupBox ResultStackGrBox;
+        public GroupBox TempStackGrBox;
+        public TextBox ProgressTextBox;
 
-        public PostfixToInfixedWatcher(string postfixedInput, GroupBox resultStack, GroupBox tempStack) : base(postfixedInput)
+        public PostfixToInfixedWatcher(string postfixedInput, GroupBox resultStack, GroupBox tempStack, TextBox progressTextBox) : base(postfixedInput)
         {
             this.postfixedInput = postfixedInput;
-            ResultStackGB = resultStack;
-            TempStackGB = tempStack;
+            progressInput = postfixedInput;
+            ResultStackGrBox = resultStack;
+            TempStackGrBox = tempStack;
+            ProgressTextBox = progressTextBox;
             resultTextBoxes = new Stack<TextBox>();
             tempTextBoxes = new Stack<TextBox>();
         }
 
         public override string Run()
         {
+            Thread.Sleep(2000);
             for (int i = 0; i < postfixedInput.Length; i++)
             {
                 Stack<string> temp = new Stack<string>();
@@ -41,26 +46,28 @@ namespace ProjectMFI
                 {
                     InfixedResult.Push(postfixedInput[i].ToString());
                     yRezGrupBoxCoordonate -= yModifyingUnits;
+                    progressInput = progressInput.Remove(0, 1);
 
-                    resultTextBoxes.Push(AddNewTextBoxTo(ResultStackGB, yRezGrupBoxCoordonate, InfixedResult));
+                    resultTextBoxes.Push(AddNewTextBoxTo(ResultStackGrBox, yRezGrupBoxCoordonate, InfixedResult));
                 }
                 else
                 {
                     temp.Push(InfixedResult.Pop());
                     SwitchFromResultToTempStack();
-                    AddNewTextBoxTo(TempStackGB, yTempGrupBoxCoordonate, temp);
+                    AddNewTextBoxTo(TempStackGrBox, yTempGrupBoxCoordonate, temp);
 
                     temp.Push(postfixedInput[i].ToString());
                     yTempGrupBoxCoordonate -= yModifyingUnits;
-                    tempTextBoxes.Push(AddNewTextBoxTo(TempStackGB, yTempGrupBoxCoordonate, temp));
+                    progressInput = progressInput.Remove(0, 1);
+                    tempTextBoxes.Push(AddNewTextBoxTo(TempStackGrBox, yTempGrupBoxCoordonate, temp));
 
                     temp.Push(InfixedResult.Pop());
                     SwitchFromResultToTempStack();
-                    AddNewTextBoxTo(TempStackGB, yTempGrupBoxCoordonate, temp);
+                    AddNewTextBoxTo(TempStackGrBox, yTempGrupBoxCoordonate, temp);
 
                     InfixedResult.Push(CreateStringFrom(temp, i));
                     yRezGrupBoxCoordonate -= yModifyingUnits;
-                    resultTextBoxes.Push(AddNewTextBoxTo(ResultStackGB, yRezGrupBoxCoordonate, InfixedResult));
+                    resultTextBoxes.Push(AddNewTextBoxTo(ResultStackGrBox, yRezGrupBoxCoordonate, InfixedResult));
                 }
             }
 
@@ -74,7 +81,7 @@ namespace ProjectMFI
             while (tempContainer.Count != 0)
             {
                 reversedString.Append(tempContainer.Pop());
-                TempStackGB.Controls.RemoveAt(tempTextBoxes.Count()-1);
+                TempStackGrBox.Controls.RemoveAt(tempTextBoxes.Count - 1);
                 tempTextBoxes.Pop();
                 yTempGrupBoxCoordonate += yModifyingUnits;
             }
@@ -95,6 +102,7 @@ namespace ProjectMFI
             textBox.Location = new Point(xCoordonate, yCoordonate);
             textBox.TextAlign = HorizontalAlignment.Center;
             grupBox.Controls.Add(textBox);
+            ProgressTextBox.Text = progressInput;
             Application.DoEvents();
             Thread.Sleep(2000);
 
@@ -104,7 +112,7 @@ namespace ProjectMFI
         private void SwitchFromResultToTempStack()
         {
             tempTextBoxes.Push(resultTextBoxes.Pop());
-            ResultStackGB.Controls.Remove(tempTextBoxes.Peek());
+            ResultStackGrBox.Controls.Remove(tempTextBoxes.Peek());
             yRezGrupBoxCoordonate += yModifyingUnits;
             yTempGrupBoxCoordonate -= yModifyingUnits;
         }

@@ -16,6 +16,7 @@ namespace ProjectMFI
         public Form1()
         {
             InitializeComponent();
+            textBoxInfixed.Enabled = false;
         }
 
         private void buttonInfix_Click(object sender, EventArgs e)
@@ -41,13 +42,16 @@ namespace ProjectMFI
             PostfixFormValidator postfixValidator = new PostfixFormValidator();
             postfixValidator.Validate(postfixedForm);
 
+            textBoxProgress.Text = textBoxPostfixed.Text;
+            Application.DoEvents();
+
             if (postfixValidator.ValidationMessage != null)
             {
                 MessageBox.Show(postfixValidator.ValidationMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            textBoxInfixed.Text = new PostfixToInfixedWatcher(postfixedForm,groupBoxRezStack,groupBoxTempStack).Run();
+            textBoxInfixed.Text = new PostfixToInfixedWatcher(postfixedForm,groupBoxRezStack,groupBoxTempStack,textBoxProgress).Run();
         }
 
         private void ClearAll()
