@@ -6,10 +6,10 @@ namespace PostfixToInfixed
 {
     public class PostfixToInfixedConverter
     {
-        private static readonly char[] operands = { '+', '-', '*', '/' };
-        private static readonly char[] lowPrioOperands = { '+', '-' };
+        protected static readonly char[] operands = { '+', '-', '*', '/' };
+        protected static readonly char[] lowPrioOperands = { '+', '-' };
 
-        private string postfixedInput;
+        protected string postfixedInput;
 
         public Stack<string> InfixedResult { get; private set; }
 
@@ -19,7 +19,7 @@ namespace PostfixToInfixed
             this.postfixedInput = postfixedInput;
         }
 
-        public string Run()
+        public virtual string Run()
         {
             for (int i = 0; i < postfixedInput.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace PostfixToInfixed
             return InfixedResult.Pop();
         }
 
-        private string CreateStringFrom(Stack<string> tempContainer, int index)
+        protected virtual string CreateStringFrom(Stack<string> tempContainer, int index)
         {
             StringBuilder reversedString = new StringBuilder();
 
@@ -60,8 +60,8 @@ namespace PostfixToInfixed
             return reversedString.ToString();
         }
 
-        private bool IsOperand(char element) => operands.Contains(element);
+        protected bool IsOperand(char element) => operands.Contains(element);
 
-        private bool IsLowPrioOperand(char element) => lowPrioOperands.Contains(element);
+        protected bool IsLowPrioOperand(char element) => lowPrioOperands.Contains(element);
     }
 }

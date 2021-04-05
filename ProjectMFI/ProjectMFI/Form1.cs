@@ -20,18 +20,42 @@ namespace ProjectMFI
 
         private void buttonInfix_Click(object sender, EventArgs e)
         {
+            ClearAll();
             string postfixedForm = textBoxPostfixed.Text;
             PostfixFormValidator postfixValidator = new PostfixFormValidator();
             postfixValidator.Validate(postfixedForm);
 
-            if(postfixValidator.ValidationMessage == null)
-            {
-                textBoxInfixed.Text = new PostfixToInfixedConverter(postfixedForm).Run();
-            }
-            else
+            if(postfixValidator.ValidationMessage != null)
             {
                 MessageBox.Show(postfixValidator.ValidationMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+                return;
+            }
+
+            textBoxInfixed.Text = new PostfixToInfixedConverter(postfixedForm).Run();
+        }
+
+        private void buttonWatchProcess_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+            string postfixedForm = textBoxPostfixed.Text;
+            PostfixFormValidator postfixValidator = new PostfixFormValidator();
+            postfixValidator.Validate(postfixedForm);
+
+            if (postfixValidator.ValidationMessage != null)
+            {
+                MessageBox.Show(postfixValidator.ValidationMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            textBoxInfixed.Text = new PostfixToInfixedWatcher(postfixedForm,groupBoxRezStack,groupBoxTempStack).Run();
+        }
+
+        private void ClearAll()
+        {
+            textBoxProgress.Clear();
+            textBoxInfixed.Clear();
+            groupBoxRezStack.Controls.Clear();
+            groupBoxTempStack.Controls.Clear();
         }
     }
 }

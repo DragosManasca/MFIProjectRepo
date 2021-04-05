@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ProjectMFI
 {
@@ -43,6 +41,4 @@ namespace ProjectMFI
 
         private bool IsLetter(char element) => letters.Contains(element);
     }
-
-
 }
