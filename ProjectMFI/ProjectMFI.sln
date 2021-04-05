@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMFI", "ProjectMFI\ProjectMFI.csproj", "{AF2ACCF9-D99C-4500-843C-02AD7D39EBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostfixToInfixedConverter", "..\PostfixToInfixedConverter\PostfixToInfixedConverter.csproj", "{58F297B7-726E-487C-A041-DCBB841FB8C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF2ACCF9-D99C-4500-843C-02AD7D39EBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2ACCF9-D99C-4500-843C-02AD7D39EBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2ACCF9-D99C-4500-843C-02AD7D39EBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2ACCF9-D99C-4500-843C-02AD7D39EBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F297B7-726E-487C-A041-DCBB841FB8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F297B7-726E-487C-A041-DCBB841FB8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F297B7-726E-487C-A041-DCBB841FB8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F297B7-726E-487C-A041-DCBB841FB8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82A393BF-23E9-4A1E-9902-DED12A0E8485}
+	EndGlobalSection
+EndGlobal

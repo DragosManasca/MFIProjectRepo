@@ -6,8 +6,8 @@ namespace PostfixToInfixed
 {
     public class PostfixToInfixedConverter
     {
-        static char[] operands = { '+', '-', '*', '/' };
-        static char[] lowPrioOperands = { '+', '-' };
+        private static readonly char[] operands = { '+', '-', '*', '/' };
+        private static readonly char[] lowPrioOperands = { '+', '-' };
 
         private string postfixedInput;
 
@@ -19,7 +19,7 @@ namespace PostfixToInfixed
             this.postfixedInput = postfixedInput;
         }
 
-        public void Run()
+        public string Run()
         {
             for (int i = 0; i < postfixedInput.Length; i++)
             {
@@ -35,12 +35,14 @@ namespace PostfixToInfixed
                     temp.Push(postfixedInput[i].ToString());
                     temp.Push(InfixedResult.Pop());
 
-                    InfixedResult.Push(ReverseElements(temp, i));
+                    InfixedResult.Push(CreateStringFrom(temp, i));
                 }
             }
+
+            return InfixedResult.Pop();
         }
 
-        private string ReverseElements(Stack<string> tempContainer, int index)
+        private string CreateStringFrom(Stack<string> tempContainer, int index)
         {
             StringBuilder reversedString = new StringBuilder();
 
@@ -49,7 +51,7 @@ namespace PostfixToInfixed
                 reversedString.Append(tempContainer.Pop());
             }
 
-            if (IsLowPrioOperand(postfixedInput[index]))
+            if (IsLowPrioOperand(postfixedInput[index]) && index != postfixedInput.Length-1)
             {
                 reversedString.Insert(0, '(');
                 reversedString.Insert(reversedString.Length, ')');
