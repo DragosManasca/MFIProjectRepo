@@ -1,0 +1,6 @@
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\bin\Debug\PostfixToInfixedConverter.dll
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\bin\Debug\PostfixToInfixedConverter.pdb
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.csprojAssemblyReference.cache
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.csproj.CoreCompileInputs.cache
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.dll
+D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.pdb
