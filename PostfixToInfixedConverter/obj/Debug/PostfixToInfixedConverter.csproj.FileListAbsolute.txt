@@ -4,3 +4,9 @@ D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToIn
 D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.csproj.CoreCompileInputs.cache
 D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.dll
 D:\MFIProjectRepo\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.pdb
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\bin\Debug\PostfixToInfixedConverter.dll
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\bin\Debug\PostfixToInfixedConverter.pdb
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.csprojAssemblyReference.cache
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.csproj.CoreCompileInputs.cache
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.dll
+C:\Users\aspet\Desktop\MFI\MFIProjectRepo\PostfixToInfixedConverter\obj\Debug\PostfixToInfixedConverter.pdb

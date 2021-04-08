@@ -17,6 +17,7 @@ namespace ProjectMFI
         {
             InitializeComponent();
             textBoxInfixed.Enabled = false;
+            textBoxProgress.Enabled = false;
         }
 
         private void buttonInfix_Click(object sender, EventArgs e)

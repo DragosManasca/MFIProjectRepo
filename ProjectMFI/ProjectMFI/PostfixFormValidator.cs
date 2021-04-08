@@ -13,6 +13,9 @@ namespace ProjectMFI
 
         public void Validate(string inputString)
         {
+            const string invalidFormMessage = "Incorrect postfixed form input!";
+            const string invalidCharacterMessage = "Invalid expresion! Your input contains forbiden elements. Only letters, 1st and second degree operands, and round brackets allowed.";
+
             int operandsCounter = 0;
             int lettersCounter = 0;
 
@@ -28,13 +31,19 @@ namespace ProjectMFI
                 }
                 else
                 {
-                    ValidationMessage = "Invalid expresion! Your input contains forbiden elements. Only letters, 1st and second degree operands, and round brackets allowed.";
+                    ValidationMessage = invalidCharacterMessage;
+                    return;
+                }
+
+                if (lettersCounter <= operandsCounter)
+                {
+                    ValidationMessage = invalidFormMessage;
                     return;
                 }
             }
 
             if (lettersCounter - operandsCounter != 1)
-                ValidationMessage = "Incorrect postfixed form input!";
+                ValidationMessage = invalidFormMessage;
         }
 
         private bool IsOperand(char element) => operands.Contains(element);
